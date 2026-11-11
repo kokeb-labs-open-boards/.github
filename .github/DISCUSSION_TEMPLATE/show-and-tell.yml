@@ -1,0 +1,20 @@
+body:
+  - type: input
+    id: designs
+    attributes:
+      label: Designs and drivers used
+      placeholder: board-bmp581-breakout, driver-bmp581
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What you built
+      description: The board, the MCU and what it does. Photos, measurements and links welcome.
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Lessons for the designs
+      description: Anything the docs should say, a mistake you found, or a limit you ran into.

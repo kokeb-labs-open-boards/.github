@@ -1,0 +1,53 @@
+name: Board request
+description: Ask for a board, a library part or a circuit block we don't have yet.
+labels: ["board-request"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is it
+      options:
+        - A board (dev kit or breakout)
+        - A library part (symbol, footprint, 3D model)
+        - A circuit block (power, interface, sensor front end)
+    validations:
+      required: true
+  - type: textarea
+    id: need
+    attributes:
+      label: What you need and why
+      description: Who would use it and what they are trying to do. Say what stops you today.
+    validations:
+      required: true
+  - type: input
+    id: part
+    attributes:
+      label: Chip or part number
+      description: For a board or part request. Check that a driver exists in kokeb-labs-drivers.
+      placeholder: BMP581
+  - type: input
+    id: datasheet
+    attributes:
+      label: Datasheet link
+      description: A link to the vendor's page. Please don't attach the PDF.
+  - type: dropdown
+    id: host
+    attributes:
+      label: Host
+      options:
+        - Standalone (bus header only)
+        - With an MCU module
+        - Either
+        - Not sure
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints
+      description: Supply, size, connectors, temperature range, anything that must hold.
+  - type: checkboxes
+    id: help
+    attributes:
+      label: Contribution
+      options:
+        - label: I can review a schematic or layout
+        - label: I can test a prototype on the bench

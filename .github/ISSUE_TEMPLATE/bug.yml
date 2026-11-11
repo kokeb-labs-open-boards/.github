@@ -1,0 +1,65 @@
+name: Board defect
+description: A design, part or block is wrong, behaves wrong or fails to build.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Security problems go through a private security advisory, not an issue. See SECURITY.md.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you saw or measured. Include error messages, ERC or DRC output, or readings.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+      description: "And where it comes from: the datasheet section, a requirement ID or the documentation."
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: "How to see it again: the setup, the commands and the smallest example."
+    validations:
+      required: true
+  - type: input
+    id: board
+    attributes:
+      label: Board and revision
+      description: The repository and the tag or commit; the revision letter if you hold a built board.
+      placeholder: board-bmp581-breakout rev A0
+    validations:
+      required: true
+  - type: dropdown
+    id: state
+    attributes:
+      label: What you have
+      options:
+        - Design files only (no board built)
+        - A board I built from these files
+        - A board from a Kokeb Labs release
+    validations:
+      required: true
+  - type: input
+    id: software
+    attributes:
+      label: Driver and firmware versions
+      description: If the problem involves firmware.
+      placeholder: driver-bmp581 v0.1.0, ESP-IDF v5.5
+  - type: input
+    id: tools
+    attributes:
+      label: Tools
+      description: KiCad version and host OS.
+      placeholder: KiCad 9.0.2, Windows 11
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs, photos or measurements
+      description: Serial output, scope captures, photos of the board. Do not post anything confidential.
+      render: text
