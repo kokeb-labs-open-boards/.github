@@ -14,26 +14,6 @@ firmware that runs it. Use one as a bench kit, as a reference design, or as the 
 > **Early days.** The organisation, the template and the first board are being set up. Nothing here has been
 > manufactured or verified on hardware yet; each board's `board.yml` says where it stands.
 
-## How a board is made
-
-Each arrow is a link you can follow in the repositories, from what people need down to the part on the board:
-
-```mermaid
-flowchart TD
-  need["Need<br/>what a user or integrator wants"] --> req["Requirements<br/>testable, versioned"]
-  req --> hw["Hardware<br/>KiCad, blocks, parts from kokeb-libs"]
-  req --> fw["Firmware<br/>kokeb-labs-drivers"]
-  req --> mech["Enclosure<br/>mechanical"]
-  hw --> ver["Verification<br/>procedures, results, evidence"]
-  fw --> ver
-  mech --> ver
-  ver --> rel["Release<br/>signed tag, evidence pack, manufacturing package"]
-```
-
-Requirements, risks and verifications are data in each board's `trace/` folder, linked by version. When a need or a
-chip choice changes, every requirement and test that depends on it is flagged in the same pull request, and CI fails
-until someone has reviewed it. Nothing is copied by hand.
-
 ## Repositories
 
 | Repository | What it is |
@@ -58,13 +38,12 @@ devices and are not intended for diagnostic, therapeutic or patient-connected us
 [evidence pack](https://github.com/kokeb-labs/board-template/blob/main/docs/evidence-pack.md) that an integrator can
 use in their own design file; it supports their process and does not replace it.
 
-## Where things live
+## Beyond the boards
 
-| | |
-| --- | --- |
-| [Kokeb Labs](https://github.com/kokeb-labs) | The platform: CI, templates, the engineering standard, the portal |
-| [Kokeb Labs Drivers](https://github.com/kokeb-labs-drivers) | The C++20 chip drivers the boards are built around |
-| [Handbook](https://kokeb-labs.github.io/handbook/) | The rules every repository follows, with the check that verifies each |
+This organization holds the boards and the parts they are built from, and nothing else. How needs, requirements,
+drivers, boards and releases fit together is described at [Kokeb Labs](https://github.com/kokeb-labs), which also
+holds the [board template](https://github.com/kokeb-labs/board-template), the CI and the engineering standard. The
+chip drivers are at [Kokeb Labs Drivers](https://github.com/kokeb-labs-drivers).
 
 Questions and ideas go to [Discussions](https://github.com/orgs/kokeb-labs-open-boards/discussions). Report
 vulnerabilities privately as the
